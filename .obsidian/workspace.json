@@ -11,10 +11,14 @@
             "id": "b5d5f29e87b1faf9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Clippings/(笔记)Ethercat 解析之命令行工具的使用教程.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "(笔记)Ethercat 解析之命令行工具的使用教程"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 307.5
   },
   "right": {
     "id": "f53a6719dd7401d2",
@@ -173,5 +177,17 @@
     }
   },
   "active": "b5d5f29e87b1faf9",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Clippings/ROS2 使用 icub 的 ethercat_driver_ros2 驱动汇川伺服尝试.md",
+    "Clippings/(笔记)Ethercat 解析之命令行工具的使用教程.md",
+    "Clippings/Ubuntu禁止内核自动更新-阿里云开发者社区.md",
+    "Raynen EtherCAT 通讯用户手册.pdf",
+    "6696eca33b0846bf816181a64d3a71a9.pdf.crdownload",
+    "Clippings/ethercat 电机六自由度机械臂的 ros2control+moveit2 方案启动流程_ros2 ethercat-CSDN 博客.md",
+    "Clippings/RK3588_RK3568_RK3576_RK3562 平台 IgH EthercAT 主站编译安装及测试.md",
+    "ubuntu 22.04 上用 ROS2 直接驱动多种 ethercat 电机尝试.md",
+    "检测系统.md",
+    "Welcome.md",
+    "Ubuntu22.04 编译实时内核安装 preempt_rt 实时补丁_ubuntu 22.04 补丁 rt preemp-CSDN 博客.md"
+  ]
 }
