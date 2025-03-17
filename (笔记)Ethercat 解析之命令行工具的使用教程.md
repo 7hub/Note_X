@@ -501,13 +501,7 @@ ecrt_slave_config_dc(sc, 0x0700, PERIOD_NS, 4400000, 0, 0);
 
 在 slave_config.c 文件里可以查看到函数的定义：
 
-[
-
-![](http://assets.cnblogs.com/images/copycode.gif)
-
-](javascript:void(0); "复制代码")
-
-```
+```c
 /** Configure distributed clocks.
 *
 * Sets the AssignActivate word and the cycle and shift times for the sync
@@ -553,10 +547,3 @@ void ecrt_slave_config_dc(ec_slave_config_t* sc, uint16_t assign_activate,
 
 ```
 
-[
-
-![](http://assets.cnblogs.com/images/copycode.gif)
-
-](javascript:void(0); "复制代码")
-
-注：部分内容转自：https://zhuanlan.zhihu.com/p/376021989

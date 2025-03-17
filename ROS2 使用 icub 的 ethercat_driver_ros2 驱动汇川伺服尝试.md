@@ -15,7 +15,7 @@ H0E.32 改成 4000
 
 ## 2 ethercat igh 安装
 
-```
+```sh
 sudo apt-get install mokutil
 mokutil --sb-statesudo apt-get update
 sudo apt-get upgrade

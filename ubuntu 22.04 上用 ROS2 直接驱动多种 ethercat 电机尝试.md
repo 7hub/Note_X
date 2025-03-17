@@ -275,9 +275,8 @@ KERNEL=="EtherCAT[0-9]*", MODE="0666"
 
 修改另一个文件，网卡硬件地址要参考 ifconfig 命令的输出来，如果是 intel 网卡， 使用 igb 类型
 
-```
+```sh
 sudo vi /etc/sysconfig/ethercat
-
 ```
 
 内容为：
@@ -351,7 +350,7 @@ source install/setup.bash
 
 /home/gene/ws_ethercat/src/ethercat_driver_ros2_examples/ethercat_motor_drive/config/kaiser_kde_config.yaml
 
-```
+```yaml
 vendor_id:  0x00010203
 product_id: 0x00000402
 assign_activate: 0x0300  # DC Synch register
@@ -383,7 +382,7 @@ tpdo:  # TxPDO = transmit PDO Mapping
 
 controller.yaml， 调成 2 个电机， 10 毫秒的周期
 
-```
+```yaml
 controller_manager:
   ros__parameters:
     update_rate: 100  # Hz
@@ -429,7 +428,7 @@ effort_controller:
 
 定义好电机设备描述文件及其他接口
 
-```
+```xml
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro >
@@ -482,7 +481,7 @@ effort_controller:
 
 安全一些额外的包
 
-```
+```sh
 sudo apt install ros-humble-hardware-interface \
 ros-humble-xacro \
 ros-humble-imu-sensor-broadcaster \
@@ -497,21 +496,21 @@ ros-humble-ros2-control
 
 ```
 
-```
+```sh
 ros2 launch ethercat_motor_drive motor_drive.launch.py
 
 ```
 
 ### 让电机转起来
 
-```
+```sh
 ros2 topic pub -r 0.2 /trajectory_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory '{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ""}, joint_names: ["joint_1"], points: [{positions: [100.0], velocities: [0.0], accelerations: [0.0], time_from_start: {sec: 1, nanosec: 0}},{positions: [10000.0], velocities: [0.0], accelerations: [0.0],time_from_start: {sec: 5, nanosec: 0}}]}'
 
 ```
 
 观察角度变化
 
-```
+```sh
 ros2 topic echo /joint_states
 
 
@@ -519,7 +518,7 @@ ros2 topic echo /joint_states
 
 ### 允许 root 登录 ubuntu 22.04
 
-```
+```sh
 sudo passwd root
 sudo nano /etc/gdm3/custom.conf
 
