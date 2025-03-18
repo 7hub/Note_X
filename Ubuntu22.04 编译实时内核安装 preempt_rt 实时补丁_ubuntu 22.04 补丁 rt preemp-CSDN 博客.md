@@ -11,9 +11,8 @@ uname -a
 
 安装必要包
 
-```
+```sh
 apt install autoconf automake libtool make libncurses-dev flex bison libelf-dev libssl-dev zstd net-tools
-
 ```
 
 ###  下载内核以及补丁
@@ -75,7 +74,7 @@ CONFIG_SYSTEM_REVOCATION_KEYS=""
 
 ### 编译安装
 
-```
+```sh
 make -j`nproc`
 
 ```
@@ -121,7 +120,7 @@ update-grub
 
 ### 测试
 
-```
+```sh
 apt-get install rt-tests 
 cyclictest -t 5 -p 80 -i 1000
 ```

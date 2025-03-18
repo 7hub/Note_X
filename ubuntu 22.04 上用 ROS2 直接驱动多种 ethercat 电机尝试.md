@@ -53,14 +53,14 @@ systemd-analyze blame
 
 修改 IP 地址
 
-```
+```sh
 sudo vi /etc/netplan/00-installer-config.yaml 
 
 ```
 
 改为静态地址
 
-```
+```sh
 network:
   ethernets:
     enp1s0:
@@ -132,7 +132,7 @@ sudo pro enable realtime-kernel
 
 清华镜像：
 
-```
+```sh
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
 deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
@@ -150,7 +150,7 @@ deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted univer
 
 ```
 
-```
+```sh
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
 sudo rm /etc/apt/sources.list
 sudo vi /etc/apt/sources.list
@@ -226,7 +226,7 @@ sudo vi /etc/modprobe.d/can-ahc0512.conf
 
 ### igh 安装
 
-```
+```sh
 cd ~
 sudo apt-get install mokutil
 mokutil --sb-state
@@ -248,7 +248,7 @@ sudo rm /etc/init.d/ethercat
 
 注意要禁用掉本机的 ubuntu 自动升级内核的功能
 
-```
+```sh
 make all modules
 sudo make modules_install install
 sudo depmod
@@ -268,7 +268,7 @@ sudo vi /etc/udev/rules.d/99-EtherCAT.rules
 
 内容为：
 
-```
+```sh
 KERNEL=="EtherCAT[0-9]*", MODE="0666"
 
 ```
@@ -512,8 +512,6 @@ ros2 topic pub -r 0.2 /trajectory_controller/joint_trajectory trajectory_msgs/ms
 
 ```sh
 ros2 topic echo /joint_states
-
-
 ```
 
 ### 允许 root 登录 ubuntu 22.04
