@@ -9,11 +9,11 @@ summary:
 
 欲想深入了解其他命令，可通过执行 ethercat –help 命令来查看详细使用方法。
 
-**一、ethercat command line 命令行介绍**
+## **一、ethercat command line 命令行介绍**
 
 下面具体的介绍了一下各参数及命令的使用，其中 [] 中为必选参数，<>为可选参数。
 
-**1.1 设置别名地址**
+### **1.1 设置别名地址**
 
 命令：ethercat alias [OPTIONS] < ALIAS >  
 参数：  
@@ -26,7 +26,7 @@ sudo ethercat alias –position 0 0x2000
 解析：将在 bus 总线上对应的从站 0 的别名（默认为 0）为 0x2000；  
 注意：必须有从站连接才能使用此命令。
 
-**1.2 显示总线配置**
+### **1.2 显示总线配置**
 
 命令：ethercat config [OPTIONS]  
 参数：  
@@ -39,7 +39,7 @@ sudo ethercat config -v
 解析：显示所有从站的详细配置信息。  
 注意：必须启动应用程序才能使用此命令查看。
 
-**1.3 以 C 语言的形式输出 PDO 信息**
+### **1.3 以 C 语言的形式输出 PDO 信息**
 
 说明：生成的 PDO 信息可以直接被应用层的 ecrt_slave_config_pdos() 函数调用。  
 命令：ethercat cstruct [OPTIONS]  
@@ -52,7 +52,7 @@ sudo ethercat cstruct -a 100
 解析：输出别名为 100 的从站的 PDO 信息。  
 注意：必须有从站连接才能使用此命令。
 
-**1.4 显示过程数据**
+### **1.4 显示过程数据**
 
 说明：输出二进制的过程数据。  
 命令：ethercat data [OPTIONS]  
@@ -64,7 +64,7 @@ sudo ethercat data
 解析：显示所有 PDO 过程数据。  
 注意：必须启动应用程序才能使用此命令查看。
 
-**1.5 设置主站调试级别**
+### **1.5 设置主站调试级别**
 
 说明：设置主站的调试级别，调试信息将输出在 / var/log/syslog 文件中。  
 命令：ethercat debug  
@@ -77,7 +77,7 @@ sudo ethercat data
 sudo ethercat debug 1  
 解析：打开部分调试信息输出
 
-**1.6 配置域**
+### **1.6 配置域**
 
 说明：显示域的信息。  
 命令：ethercat domains [OPTIONS]  
@@ -113,7 +113,7 @@ SlaveConfig 0:0, SM3 （Input）, LogAddr 0x00000000, Size 6 31 0a 9d aa 00 00
 解析：显示域的详细信息（FMMU 和过程数据的信息）。  
 注意：必须启动应用程序才能使用此命令查看。
 
-**1.7 访问 SDO**
+### **1.7 访问 SDO**
 
 说明：向从站写一条 PDO 条目。  
 命令：ethercat download [OPTIONS]  
@@ -139,7 +139,7 @@ sm8、sm16、sm32、sm64
 sudo ethercat download -t int16 -p 0 0x6060 00 08  
 解析：向从站 0 的索引号为 0x6060（16 位），子索引号为 00（8 位）的地址写入 PDO 条目值”0x08“；
 
-**1.8 访问 SDO**
+### **1.8 访问 SDO**
 
 说明：向从站读取一个 SDO 条目。  
 命令：ethercat upload [OPTIONS]  
@@ -166,13 +166,13 @@ sudo ethercat upload -t int16 -p 0 0x6060 00
 
 注意：必须有从站连接才能使用此命令。
 
-**1.9 输出 EOE 统计信息**
+### **1.9 输出 EOE 统计信息**
 
 说明：显示 EOE 的统计信息，包括主站的发送率和接收率（Byte/s）。  
 命令：ethercat eoe  
 参数：无
 
-**1.10 FOE 通信**
+### **1.10 FOE 通信**
 
 ⑴ 通过 FOE 读取从站的文件。  
 命令：ethercat foe_read [OPTIONS]  
@@ -195,7 +195,7 @@ sudo ethercat upload -t int16 -p 0 0x6060 00
 * –alias：匹配从站的别名；  
 * –position：匹配从站的绝对位置；
 
-**1.11 创建一个拓扑图形**
+### **1.11 创建一个拓扑图形**
 
 说明：输出总线拓扑图。  
 命令：ethercat graph [OPTIONS]
@@ -204,7 +204,7 @@ sudo ethercat upload -t int16 -p 0 0x6060 00
 sudo ethercat graph | dot -Tsvg > ~/Desktop/bus.svg  
 解析：将总线拓扑图输出到桌面。
 
-**1.12 主站和以太网设备**
+### **1.12 主站和以太网设备**
 
 说明：显示主站和以太网设备信息。  
 命令：ethercat master [OPTIONS]  
@@ -252,7 +252,7 @@ PDO entry 0x607a:00, 32 bit, ” “
 * 16bit：表示该条目的位宽；  
 * ” “：表示该位的描述；
 
-**1.14 寄存器访问**
+### **1.14 寄存器访问**
 
 ⑴ 获取对应从站寄存器的内容  
 命令：ethercat reg_read [OPTIONS]
@@ -298,7 +298,7 @@ _* DATA：要写入寄存器的数据；假如制定了”type” 数据类型�
 sudo ethercat reg_write -p 5 -t sm32 0x092c 200  
 解析：向从站 5 的寄存器 0x092c 写入数据 200。
 
-**1.15 SDO 字典**
+### **1.15 SDO 字典**
 
 说明：列出 SDO 字典（SDO 信息和 SDO 条目信息）。  
 命令：ethercat sdos [OPTIONS]  
@@ -325,7 +325,7 @@ SDO 条目：0x1000:0, r-r-r-, uint32, 32 bit, “Device type”
 * 32bit：表示该条目的位宽；  
 * “Device type”：对该条目的描述；
 
-**1.16 SII 访问**
+### **1.16 SII 访问**
 
 ⑴ 读取从站的 SII 内容  
 命令：ethercat sii_read [OPTIONS]  
@@ -357,7 +357,7 @@ sudo ethercat sii_read -p 0 Backup.bin
 
 注意：必须有从站连接才能使用此命令。
 
-**1.17 显示从站的信息**
+### **1.17 显示从站的信息**
 
 说明：显示总线上的从站的信息。  
 命令：ethercat slaves [OPTIONS]  
@@ -390,7 +390,7 @@ bool、int8、int16、int32、int64、uint8、uint16、uint32、uint64、float�
 
 对于 sign-and-magnitude coding 有：sm8、sm16、sm32、sm64
 
-**1.19 请求应用层转换状态机**
+### **1.19 请求应用层转换状态机**
 
 说明：请求应用层转换状态。  
 命令：ethercat states [OPTIONS]  
@@ -408,7 +408,7 @@ sudo ethercat states -p 0 OP
 
 注意：必须有从站连接才能使用此命令。
 
-**1.20 显示主站版本**
+### **1.20 显示主站版本**
 
 说明：显示主张的版本。  
 命令：ethercat version [OPTIONS]
@@ -425,7 +425,7 @@ sudo ethercat states -p 0 OP
 sudo ethercat xml -p 0  
 解析：生成从站 0 的从站信息描述文件并显示出来
 
-**二、应用层执行 PDO 映射的基本原理**
+## **二、应用层执行 PDO 映射的基本原理**
 
 开启系统后，用户主要需要进行从站配置与 PDO 映射、域操作功能，然后就可以进行 PDO 交换了，当然，这个过程是基于主站状态机在后台完成了庞大的扫描工作后我们才得以进行这些操作的：
 
@@ -491,13 +491,15 @@ sudo ethercat xml -p 0
 
 以上，就是应用层执行 PDO 映射的基本原理。
 
-**三、EtherCAT igh 源码的 ecrt_slave_config_dc（）函数的理解**
+## **三、EtherCAT igh 源码的 `ecrt_slave_config_dc（）`函数的理解**
 
 总结一下自己对 igh 的 ecrt_slave_config_dc（）函数的理解。参考了 igh 的 example 里的 “dc_user 例程”。  
 例程里有这样一处代码：
 
+```c
 // configure SYNC signals for this slave  
 ecrt_slave_config_dc(sc, 0x0700, PERIOD_NS, 4400000, 0, 0);
+```
 
 在 slave_config.c 文件里可以查看到函数的定义：
 
